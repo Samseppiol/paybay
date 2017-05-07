@@ -10,6 +10,7 @@
     <h3><%= @listing.name %></h3>
     <p><%= "$#{@listing.price}" %></p>
     <p><%= @listing.description %></p>
+    <p><%= "Listed by: #{@listing.user.username}" %></p>
 
   </div>
 </div>
