@@ -7,7 +7,10 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
      name: 'rails',
      description: 'two sided market',
      image_file_name: 'rails.jpg',
-     price: 29.95
+     price: 29.95,
+     id: 2,
+     username: 'frank'
+
    }
   end
 

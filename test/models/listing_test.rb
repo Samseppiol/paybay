@@ -13,7 +13,8 @@ class ListingTest < ActiveSupport::TestCase
   test 'Listing price must be positive' do
     listing = Listing.new(name: 'rails',
                           description: 'this is great',
-                          image_file_name: 'test.jpg')
+                          image_file_name: 'test.jpg',
+                          id: 3)
     listing.price = -1
     assert listing.invalid?
     assert_equal ["must be greater than or equal to 0.01"],
