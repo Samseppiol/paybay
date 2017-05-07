@@ -1,8 +1,9 @@
 class Listing < ApplicationRecord
+  belongs_to :user
   validates :name, :description, presence: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   validates :name, uniqueness: true
-  # validates :image_file_name, allow_blank: true, format: {
+  # validates :image, allow_blank: true, format: {
   #   with: %r{\.(gif|jpg|jpeg|png)\Z}i,
   #   message: 'Must be a url for a gif, jpg or png image file.'
   # }
