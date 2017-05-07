@@ -7,6 +7,5 @@ class UserTest < ActiveSupport::TestCase
     assert user.errors[:first_name].any?
     assert user.errors[:last_name].any?
     assert user.errors[:date_of_birth].any?
-
   end
 end
