@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-  validates :name, :description, :image_file_name, presence: true
+  validates :name, :description, presence: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   validates :name, uniqueness: true
   validates :image_file_name, allow_blank: true, format: {

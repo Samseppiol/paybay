@@ -8,7 +8,6 @@ class ListingTest < ActiveSupport::TestCase
     assert listing.errors[:name].any?
     assert listing.errors[:description].any?
     assert listing.errors[:price].any?
-    assert listing.errors[:image_file_name].any?
   end
 
   test 'Listing price must be positive' do
