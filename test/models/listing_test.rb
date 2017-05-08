@@ -11,10 +11,12 @@ class ListingTest < ActiveSupport::TestCase
   end
 
   test 'Listing price must be positive' do
+    #user = User.create(email: 'dfgdfg@example.com', password: 'password')
+    user = users(:bob)
     listing = Listing.new(name: 'rails',
                           description: 'this is great',
                           image_file_name: 'test.jpg',
-                          id: 3)
+                          user: user)
     listing.price = -1
     assert listing.invalid?
     assert_equal ["must be greater than or equal to 0.01"],
@@ -24,7 +26,7 @@ class ListingTest < ActiveSupport::TestCase
     assert listing.invalid?
     assert_equal ["must be greater than or equal to 0.01"],
       listing.errors[:price]
-
+    #
     listing.price = 1
     assert listing.valid?
   end

@@ -1,16 +1,18 @@
 require 'test_helper'
 
 class ListingsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:bob) #, scope: :user
+
     @listing = listings(:one)
     @update = {
      name: 'rails',
      description: 'two sided market',
-     image_file_name: 'rails.jpg',
-     price: 29.95,
-     id: 2,
-     username: 'frank'
-
+     price: 30.05,
+     image_file_name: 'rails.jpg'
+     #username: 'frank'
    }
   end
 

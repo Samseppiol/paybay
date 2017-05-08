@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:new, :create, :update, :destroy]
-  before_filter :validate_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
+  before_action :validate_user, only: [:edit, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
@@ -72,7 +72,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :price, :image, :user_id)
+      params.require(:listing).permit(:name, :description, :price, :image)
     end
 
     def validate_user
