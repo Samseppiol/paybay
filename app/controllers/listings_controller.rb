@@ -66,7 +66,7 @@ class ListingsController < ApplicationController
 
   def vendor
     #Basically saying we only want the listings of the current user
-    @listings = Listing.where(user: current_user)
+    @listings = Listing.where(user: current_user).order('created_at DESC')
   end
 
   private
