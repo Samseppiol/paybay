@@ -1,0 +1,33 @@
+<h1 align='center'>Listings</h1>
+<br>
+
+<div class="row center">
+  <% @listings.each do |listing| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <%= link_to image_tag(listing.image.url), listing %>
+        <div class="caption">
+          <h3><%= listing.name %></h3>
+          <p>
+            <%= "$#{listing.price}" %><br>
+          </p>
+
+          <p>
+            <%= "Listed by: #{listing.user.username} " %>
+          </p>
+
+
+            <% if (user_signed_in?) && (current_user == listing.user) %>
+              <%= link_to 'Edit', edit_listing_path(listing), class: 'btn btn-link' %>
+              <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Listing', new_listing_path, class: 'btn btn-link' %>
+<% end %>

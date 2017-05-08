@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:vendor, :new, :create, :update, :destroy]
   before_action :validate_user, only: [:edit, :update, :destroy]
 
   # GET /listings
@@ -62,6 +62,11 @@ class ListingsController < ApplicationController
       format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def vendor
+    #Basically saying we only want the listings of the current user
+    @listings = Listing.where(user: current_user)
   end
 
   private
