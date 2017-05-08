@@ -10,8 +10,7 @@ bob:
   last_name: 'Jones'
   username: 'bob'
 
-two:
+bill:
   email: 'two@two.com'
-  first_name: 'Mary'
+  first_name: 'Bill'
   last_name: 'Smith'
-  username: 'mary'

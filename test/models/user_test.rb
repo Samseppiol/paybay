@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "First name, last name and DOB should not be empty" do
+  test "First name, last name, DOB and username should not be empty" do
     user = User.new
     assert user.invalid?
     assert user.errors[:first_name].any?
@@ -9,6 +9,8 @@ class UserTest < ActiveSupport::TestCase
     assert user.errors[:date_of_birth].any?
     assert user.errors[:username].any?
   end
+
+
 
 
   test "Password must be valid" do
@@ -19,5 +21,7 @@ class UserTest < ActiveSupport::TestCase
     )
     assert(user.valid_password?('password'))
   end
+
+
 
 end

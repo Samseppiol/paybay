@@ -42,5 +42,17 @@ class OrderTest < ActiveSupport::TestCase
     assert order.valid?
   end
 
+  test 'Address is not empty' do
+    order = Order.new(city: 'melb',
+                      state: 'vic',
+                      postcode: '3198')
+    order.address = ' '
+    assert order.invalid?
+    assert_equal ["can't be blank", "is too short (minimum is 2 characters)"], order.errors[:address]
+
+    order.address = '123 fake street'
+    assert order.valid?
+  end
+
 
 end
