@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /orders
   # GET /orders.json
@@ -7,28 +8,28 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
-  # GET /orders/1
-  # GET /orders/1.json
-  def show
-  end
-
   # GET /orders/new
   def new
     @order = Order.new
+    @listing = Listing.find(params[:listing_id])
   end
 
   # GET /orders/1/edit
-  def edit
-  end
+
 
   # POST /orders
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @listing = Listing.find(params[:listing_id])
+    @vendor = @listing.user
+    @order.listing_id = @listing.id
+    @order.buyer_id = current_user.id
+    @order.vendor_id = @vendor.id
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to root_url @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -53,13 +54,7 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1
   # DELETE /orders/1.json
-  def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

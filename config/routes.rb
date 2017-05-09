@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :orders
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   root 'pages#index'
-  resources :listings
+  resources :listings do
+    resources :orders, only: [:new, :create]
+  end
   resources :pages, only: [:index]
   get 'pages/about'
 

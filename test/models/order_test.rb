@@ -11,9 +11,7 @@ class OrderTest < ActiveSupport::TestCase
   end
 
   test 'Postcode is valid' do
-    order = Order.new(address: '123 fake street',
-                      city: 'Fakebourne',
-                      state: 'vic')
+    order = orders(:one)
     order.postcode = '321'
     assert order.invalid?
     assert_equal ["is too short (minimum is 4 characters)"], order.errors[:postcode]

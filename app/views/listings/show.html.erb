@@ -6,11 +6,12 @@
     <%= image_tag @listing.image.url %>
     </div>
   </div>
-  <div class='col-md-6'>
+  <div class='col-md-6 cust-list'>
     <h3><%= @listing.name %></h3>
     <p><%= "$#{@listing.price}" %></p>
     <p><%= @listing.description %></p>
     <p><%= "Listed by: #{@listing.user.username}" %></p>
+    <%= link_to 'Buy Now', new_listing_order_path(@listing), class: 'btn btn-primary ' %>
 
   </div>
 </div>
