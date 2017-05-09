@@ -15,6 +15,9 @@
           <p>
             <%= "Listed by: #{listing.user.username} " %>
           </p>
+          <p class='cust-button'>
+          <%= link_to 'Add to Cart', line_items_path(@listing_id, @listing), class: 'btn btn-primary ' %>
+          </p>
 
 
             <% if (user_signed_in?) && (current_user == listing.user) %>
