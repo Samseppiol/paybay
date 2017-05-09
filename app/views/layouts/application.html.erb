@@ -3,7 +3,6 @@
   <head>
     <title>Marketplace</title>
     <%= csrf_meta_tags %>
-    <%= :meta, :name => 'stripe-key', :content => ENV['STRIPE_PUBLIC_KEY']
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "https://js.stripe.com/v2/" %>

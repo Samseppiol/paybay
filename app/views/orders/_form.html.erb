@@ -1,3 +1,8 @@
+<h1 align='center'>Your purchase: <%=@listing.name %></h1>
+<h3 align='center'>Price: $<%= "#{@listing.price}" %>  </h3>
+<h6 align='center'>Vendor: <%= "#{@listing.user.username}" %>  </h3>
+
+
 <%= form_for([@listing, order]) do |f| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
@@ -29,6 +34,21 @@
   <div class="form-group">
     <%= f.label :postcode %>
     <%= f.number_field :postcode, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :card_number, 'Credit Card Number'%>
+    <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :card_code, 'CVC'%>
+    <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => 'cvc', class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= select_month nil, { use_two_digit_numbers: true }, { :name => nil, :'data-stripe' => 'Expiry Month', class: 'form-control'} %>
+    <%= select_year nil, { start_year: Date.today.year, end_year: Date.today.year+10 }, { :name => nil, :'data-stripe' => 'Year', class: 'form-control'} %>
   </div>
 
   <div class="form-group">
