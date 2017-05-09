@@ -24,7 +24,7 @@ include Devise::Test::IntegrationHelpers
       post listing_orders_url(listing), params: { order: @update }
     end
 
-    assert_redirected_to listing_orders_url(listing)
+    assert_redirected_to listing_url(listing)
   end
 
   # test "should update order" do
