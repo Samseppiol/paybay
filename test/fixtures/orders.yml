@@ -5,15 +5,15 @@ one:
   city: MyString
   state: MyString
   postcode: 1234
-  listing_id: 4
-  vendor_id: 1
-  buyer_id: 2
+  listing: one
+  vendor: bob
+  buyer: bill
 
-two:
-  address: MyString
-  city: MyString
-  state: MyString
-  postcode: 1223
-  listing_id: 2
-  vendor_id: 1
-  buyer_id: 1
+# two:
+#   address: MyString
+#   city: MyString
+#   state: MyString
+#   postcode: 1223
+#   listing_id: 2
+#   vendor_id: 1
+#   buyer_id: 1

@@ -25,9 +25,7 @@ class OrderTest < ActiveSupport::TestCase
 
 
   test 'City name is valid' do
-    order = Order.new(address: '123 fake street',
-                      state: 'vic',
-                      postcode: '3198')
+    order = orders(:one)
     order.city = 'a'
     assert order.invalid?
     assert_equal ["is too short (minimum is 2 characters)"], order.errors[:city]
@@ -41,9 +39,8 @@ class OrderTest < ActiveSupport::TestCase
   end
 
   test 'Address is not empty' do
-    order = Order.new(city: 'melb',
-                      state: 'vic',
-                      postcode: '3198')
+    order = orders(:one)
+
     order.address = ' '
     assert order.invalid?
     assert_equal ["can't be blank", "is too short (minimum is 2 characters)"], order.errors[:address]
