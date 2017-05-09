@@ -39,6 +39,8 @@ gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk'
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'stripe'
+gem 'figaro'
 
 group :production do
   gem 'pg'
