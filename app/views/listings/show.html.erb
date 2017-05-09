@@ -11,8 +11,9 @@
     <p><%= "$#{@listing.price}" %></p>
     <p><%= @listing.description %></p>
     <p><%= "Listed by: #{@listing.user.username}" %></p>
-    <%= link_to 'Buy Now', new_listing_order_path(@listing), class: 'btn btn-primary ' %>
-
+    <% if user_signed_in? %>
+      <%= link_to 'Buy Now', new_listing_order_path(@listing), class: 'btn btn-primary ' %>
+    <% end %>
   </div>
 </div>
 

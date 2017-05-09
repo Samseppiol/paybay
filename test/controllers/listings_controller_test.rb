@@ -16,6 +16,13 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
    }
   end
 
+  test 'Cant delete products in cart' do
+    assert_difference('Listing.count', 0) do
+      delete listing_url(listings(:two))
+    end
+    assert_redirected_to listings_url
+  end
+
   test "should get index" do
     get listings_url
     assert_response :success
