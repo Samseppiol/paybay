@@ -9,6 +9,6 @@ class Listing < ApplicationRecord
   #   message: 'Must be a url for a gif, jpg or png image file.'
   # }
 
-  has_attached_file :image, styles: { medium: "250x250>", thumb: "100x100>" }, default_url: "missing.jpg"
- validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+   has_attached_file :image, styles: { medium: "250x250>", thumb: "100x100>" }, default_url: "missing.jpg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 end
