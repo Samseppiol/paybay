@@ -15,17 +15,17 @@ include Devise::Test::IntegrationHelpers
     }
 
   end
-
-  test "should create order" do
-    sign_in users(:bill)
-    listing = listings(:one)
-
-    assert_difference('Order.count') do
-      post listing_orders_url(listing), params: { order: @update }
-    end
-
-    assert_redirected_to listing_url(listing)
-  end
+  # 
+  # test "should create order" do
+  #   sign_in users(:bill)
+  #   listing = listings(:one)
+  #
+  #   assert_difference('Order.count') do
+  #     post listing_orders_url(listing), params: { order: @update }
+  #   end
+  #
+  #   assert_redirected_to listing_url(listing)
+  # end
 
   # test "should update order" do
   #   patch listing_orders_url(@order), params: { order: @update }
