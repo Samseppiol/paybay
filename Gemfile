@@ -41,6 +41,8 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'stripe'
 gem 'figaro'
+gem 'dotenv-rails', groups: [:development, :test]
+
 
 group :production do
   gem 'pg'
