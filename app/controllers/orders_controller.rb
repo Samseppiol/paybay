@@ -10,8 +10,13 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
     @listing = Listing.find(params[:listing_id])
+    if params.include?(:order)
+      @order = Order.new(order_params)
+      @valid_info = @order.valid?
+    else
+      @order = Order.new
+    end
   end
 
   # GET /orders/1/edit
@@ -26,16 +31,38 @@ class OrdersController < ApplicationController
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
     @order.vendor_id = @vendor.id
+    @valid_info = @order.valid?
+    @amount = @listing.price
 
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to listing_url(@listing), notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+    if params[:order][:step] == '1' and @valid_info
+      render :new
+    else
+      customer = Stripe::Customer.create(
+        :email => params[:stripeEmail],
+        :source  => params[:stripeToken]
+      )
+
+      charge = Stripe::Charge.create(
+        :customer    => customer.id,
+        :amount      => @amount,
+        :description => 'Rails Stripe customer',
+        :currency    => 'usd'
+      )
+
+      respond_to do |format|
+        if @order.save
+          format.html { redirect_to listing_url(@listing), notice: 'Order was successfully created.' }
+          format.json { render :show, status: :created, location: @order }
+        else
+          format.html { render :new }
+          format.json { render json: @order.errors, status: :unprocessable_entity }
+        end
       end
     end
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    # redirect_to listing_url(@listing)
+    render :new
   end
 
   # PATCH/PUT /orders/1

@@ -1,3 +1,7 @@
-<h1>New Order</h1>
+<h1 align='center'>Mailing Address</h1>
 
-<%= render 'form', order: @order %>
+<% if @valid_info %>
+  <%= render 'form_2', order: @order %>
+<% else %>
+  <%= render 'form_1', order: @order %>
+<% end %>

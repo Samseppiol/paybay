@@ -1,0 +1,58 @@
+<%= form_for([@listing, order]) do |f| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :step, value: '2' %>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.hidden_field :address %>
+    <%= order.address %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.hidden_field :city %>
+    <%= order.city %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :state %>
+    <%= f.hidden_field :state %>
+    <%= order.state %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :postcode %>
+    <%= f.hidden_field :postcode %>
+    <%= order.postcode %>
+  </div>
+
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: <%=@listing.price %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-email="<%= current_user.email %>"
+
+          data-description="A month's subscription"
+          data-amount="<%= @listing.price * 100 %>"
+          data-locale="auto"></script>
+<% end %>
