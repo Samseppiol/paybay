@@ -31,12 +31,15 @@ class OrdersController < ApplicationController
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
     @order.vendor_id = @vendor.id
-    @valid_info = @order.valid?
     @amount = @listing.price
 
-    if params[:order][:step] == '1' and @valid_info
+    @valid_info = @order.valid?
+    # Will be '1' for form_1, '2' for form_2
+    @submitted_from = params[:order][:step]
+    # If was submitted from form_1
+    if @submitted_from == '1' || !@valid_info
       render :new
-    else
+    else # Submitted from form_2 and valid address
       customer = Stripe::Customer.create(
         :email => params[:stripeEmail],
         :source  => params[:stripeToken]
@@ -44,7 +47,7 @@ class OrdersController < ApplicationController
 
       charge = Stripe::Charge.create(
         :customer    => customer.id,
-        :amount      => @amount,
+        :amount      => (@amount * 100).to_i,
         :description => 'Rails Stripe customer',
         :currency    => 'usd'
       )
