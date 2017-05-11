@@ -86,7 +86,7 @@ config.action_mailer.default_url_options = { :host => 'https://morning-stream-13
   config.log_formatter = ::Logger::Formatter.new
 
   #required for devise.
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+#config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
