@@ -9,14 +9,15 @@
   </head>
 
   <body>
-    <% if flash[:notice].present?  %>
-     <div>
-      <%= flash[:notice]  %>
-     </div>
-   <% end %>
-    <%= render 'common/nav' %>
-    <div class='container'>
 
+    <%= render 'common/nav' %>
+
+    <div class='container'>
+      <% if flash[:notice].present?  %>
+       <div>
+        <%= flash[:notice]  %>
+       </div>
+     <% end %>
       <%= yield %>
       <%= render 'common/footer' %>
     </div>
