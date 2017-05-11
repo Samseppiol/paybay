@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  # devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, controllers: { confirmations: 'confirmations' }
   root 'pages#index'
   resources :listings do
     resources :orders, only: [:new, :create]

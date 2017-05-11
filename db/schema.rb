@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508100915) do
+ActiveRecord::Schema.define(version: 20170511020855) do
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.integer  "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["listing_id"], name: "index_line_items_on_listing_id"
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string   "name"
@@ -18,11 +32,11 @@ ActiveRecord::Schema.define(version: 20170508100915) do
     t.decimal  "price"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.string   "image_file_name"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -54,6 +68,10 @@ ActiveRecord::Schema.define(version: 20170508100915) do
     t.string   "last_name"
     t.string   "username"
     t.datetime "date_of_birth"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
