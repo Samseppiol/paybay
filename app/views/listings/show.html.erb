@@ -3,7 +3,7 @@
 <div class='row'>
   <div class='col-md-6'>
     <div class='thumbnail'>
-    <%= image_tag @listing.image.url %>
+    <%= image_tag @listing.image.url if listing.image? %>
     </div>
   </div>
   <div class='col-md-6 cust-list'>
