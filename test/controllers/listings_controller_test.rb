@@ -5,6 +5,10 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     sign_in users(:bob) #, scope: :user
+    user = (:bob)
+    user.confirmed! 
+    user.save
+
 
     @listing = listings(:one)
     @update = {
