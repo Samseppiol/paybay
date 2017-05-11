@@ -12,6 +12,9 @@ Rails.application.configure do
   }
 }
 
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.default_url_options = { :host => 'https://morning-stream-13193.herokuapp.com/', :protocol => 'https'}
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
