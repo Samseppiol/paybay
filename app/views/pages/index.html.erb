@@ -1,3 +1,20 @@
-<h1>
-  This will be the homepage
-</h1>
+<body class='background-img'>
+
+<div class='container info center'>
+  <% if user_signed_in? %>
+    <h1 class='sales-pitch big-h1'><%="Hello #{current_user.first_name}! " %></h1>
+    <h1 class='sales-pitch big-h1'>Thanks for using BookBuy!</h1>
+    <h1 class='big-h1'><%= link_to 'Create A Listing!', new_listing_path, class: 'btn btn-success btn-cust' %></h1>
+    <h1><%= link_to 'Browse Listings', listings_path, class: 'btn btn-success btn-cust' %></h1>
+
+  <% else %>
+    <h1 class='sales-pitch'>Can't afford brand new programming books? Forget Paying $90+</h1>
+    <h2 class='sales-pitch'>Or</h2>
+    <h1 class='sales-pitch'>Finished with your programming books and need some extra money?</h1>
+    <h3 class='sales-pitch'>Sign up now for friendly prices today! </h3>
+    <div class='cust-link'><%= link_to 'Sign Up Now!', new_user_registration_path, class: 'btn btn-success btn-cust' %></div>
+  <% end %>
+  </div>
+
+
+</body>

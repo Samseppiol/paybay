@@ -1,3 +1,35 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+.background-img {
+  background-image: image-url("books.jpg");
+ background-size: cover;
+ background-position: center;
+ background-attachment: fixed;
+}
+
+.sales-pitch {
+  color: white;
+  a {color: white;}
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.info {
+  padding-top: 10%;
+
+}
+
+
+.btn-cust {
+  color: white;
+  width: 14%;
+}
+
+
+.big-h1 {
+  font-size: 4em;
+}

@@ -4,6 +4,8 @@ body {
   font-family: 'PT Sans Narrow', sans-serif;
 }
 
+
+
 .navbar-default {
   background-color: #0E0E0D;
 }
@@ -12,13 +14,22 @@ body {
 .navbar-default .navbar-brand {
   font-weight: 400;
   color: white;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .navbar-default .navbar-nav > li > a {
 
   font-family: Arial, Helvetica, sans-serif;
   color: white;
+  font-size: 1.2em;
+}
+
+
+
+.cust-link a{
+  color: white;
+  width: 28%;
+  height: auto;
 }
 
 .center {
@@ -31,9 +42,7 @@ body {
   p {font-size: 16px;}
 }
 
-.cust-list {
-  a {color: white}
-}
+
 
 
 .footer {
@@ -46,7 +55,13 @@ body {
   padding: 1rem;
   padding-top: 10px;
   border-top: 2px solid black;
-  color: black;
+  color: white;
+  font-size: 1.5em;
+  background-color: black;
+}
+
+.footer a{
+  color: white;
 }
 
 .foot-left {
