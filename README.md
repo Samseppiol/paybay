@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Original idea too complex.
 
-Things you may want to cover:
+> Took a step back, simplified things. Created a new project keeping it as basic as possible
 
-* Ruby version
+> Incremental steps, one basic function at a time.
 
-* System dependencies
+> Added tests for validations and had to constantly update fixtures when changing things
 
-* Configuration
+> Fell in love with boot strap.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+> Most challenging part was S3 bucket for heroku.

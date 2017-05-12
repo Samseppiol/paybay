@@ -9,6 +9,8 @@ bob:
   first_name: 'Bob'
   last_name: 'Jones'
   username: 'bob'
+  confirmed_at: <%= Time.zone.now - 1.hour %>
+  confirmation_sent_at: <%= Time.zone.now - 1.hour %>
 
 bill:
   email: 'two@two.com'
