@@ -16,4 +16,4 @@
 
 ## Problem
 > Students like those enrolled in coder factory academy that need access to reputable quality programming books at a low cost. This problem was really put in to perspective when myself and another cfa student were looking up Rails programming books, with some being as much as $91!
-[fishpond](references/fishpond.jpg)
+[references/fishpond.jpg]
