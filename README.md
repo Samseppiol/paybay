@@ -23,6 +23,8 @@
 ### BookBuy!!!!
 
 > I developed a two sided marketplace where students like myself and my classmates can sell their books or buy another students for a low price!
+![Listings](app/assets/images/marketplace.png)
+
 
 ### How does it work you ask?
 > Well before a user can do anything they must sign up with valid credentials, because without a confirmable email, the user can not use the site. After confirmation, users are free to create as many listings of their books as they want! Likewise, users looking to buy can purchase as many listings as they want.
