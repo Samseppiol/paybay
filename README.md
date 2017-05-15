@@ -51,6 +51,17 @@
 > I tried to keep this relatively simple, most of this was the same in development, a few minor changes were made. I haven't yet implemented a cart or a messaging system and I haven't started recording payments within the db just yet.
 > ![](app/assets/images/db.png)
 
+### What helped me along the way?
+#### Well a special shout out to:
+> * gem 'bootstrap-sass', '~> 3.3.6'
+* gem "paperclip", "~> 5.0.0" (DONT TOUCH ME. USE CARRIERWAVE OR SHRINE)
+* gem 'aws-sdk'
+* gem 'devise'
+* gem 'devise-bootstrap-views' (A personal favourite)
+* gem 'stripe'
+* gem 'figaro'
+* gem 'dotenv-rails'
+
 ## Project Plan
 > So I did have this amazing plan that I would get the vital things like payment, authorisation and image uploads all done within a few days then spend the remaining week implementing nice to haves. Boy did that not work out, so here is a rough timeline of my project.
 
