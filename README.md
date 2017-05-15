@@ -33,6 +33,10 @@
 ### How does it work you ask?
 > Well before a user can do anything they must sign up with valid credentials, because without a confirmable email, the user can not use the site. After confirmation, users are free to create as many listings of their books as they want! Likewise, users looking to buy can purchase as many listings as they want.
 
+
+### Trello!
+![](app/assets/images/tasks.png)
+![](app/assets/images/two.png)
 ### Wireframes
 > I only created wireframes, not mockups because I had decided I was going to primarily use bootstrap for my entire front end. After going through a few boot strap components, my front end does look slightly different to this. These wireframes were designed for a rough template.
 ![](app/assets/images/homepage.png)
