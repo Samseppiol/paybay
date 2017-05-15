@@ -13,9 +13,11 @@
 
 > Added tests for validations and had to constantly update fixtures when changing things, especially with devise.
 
-> Fell in love with boot strap.
+> Fell in love with boot strap, components, containers etc.
 
-> Most challenging part was S3 bucket for heroku.
+> Most challenging part was S3 bucket for heroku, I am confident on the AWS side of things but paperclip does not make things easy, lesson learnt, never to use paperclip again.
+
+> Whenever implementing a new feature, would branch out, make sure everything is working 100% before merging back to master. Git really was a lfie saver many times.
 
 
 ## Problem
